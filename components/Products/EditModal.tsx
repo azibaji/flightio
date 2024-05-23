@@ -1,18 +1,15 @@
 'use client'
 import {dataType} from '@/types/Product'
-import { useFetch } from "@/hooks/useFetch"
 import { useState } from 'react';
 interface propsType {
     data: dataType | null,
-    closeModal: () => void
+    closeModal: () => void,
+    handleEdit: (newData: object) => void
 }
-export default function EditModal ({data, closeModal}:propsType) {
-    const { putData  } = useFetch<dataType>(
-        `https://fakestoreapi.com/products/${data.id}`
-      );
+export default function EditModal ({data, closeModal, handleEdit}:propsType) {
     const [newData, setNewData] = useState({...data})
     const submitEdit = async () => {
-        await putData(newData)
+        handleEdit(newData)
     }
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
