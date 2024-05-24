@@ -15,7 +15,8 @@ export default function ProductItem ({ product }: propsType) {
                 src={product.image}
                 alt={product.title}
                 className="absolute inset-0 object-cover"
-                layout="fill"
+                fill
+                
                 />
             </div>
             <p className="font-custom-weight font-sm leading-custom-line-height truncate h-20 mt-4">
