@@ -33,11 +33,11 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
   if (!productDetails) return <div>Loading...</div>;
 
   return (
-    <div className="min-h-screen bg-white w-full rounded-lg grid grid-cols-3 gap-2">
+    <div className="bg-white w-full rounded-lg grid lg:grid-cols-3 lg:gap-2">
         <div
-            className="col-span-2 border-r-1 border-custom-light-gray flex flex-col justify-between"
+            className="order-2 lg:order-1 pt-6 lg:col-span-2 border-r-1 border-custom-light-gray flex flex-col justify-between"
         >
-           <div className="border-b-1 border-custom-light-gray p-2">
+           <div className="p-4">
                 <p className="text-lg font-custom-weight leading-custom-line-height">
                     {productDetails?.title}
                 </p>
@@ -45,31 +45,27 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
                     {productDetails?.category}
                 </p>
                 <div className="mt-4 flex justify-start items-center text-xxs text-custom-medium-gray">
-               <p className="flex justify-start items-center border-r-1 border-custom-light-gray pr-2">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24px"
-                        viewBox="0 -960 960 960"
-                        width="24px"
-                        fill="#F5AC1F"
-                    >
-                        <path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/>
-                    </svg>
-                    {productDetails?.rating?.rate}
-               </p>
-               <p className="pl-2">
-                   {productDetails?.rating?.count} has lefted.
-               </p>
-           </div>
-           </div>
-           
-           <div className="p-2">
-                <p className="border-custom-light-gray text-custom-medium-gray text-xxs">
+                    <p className="flex justify-start items-center border-r-1 border-custom-light-gray pr-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="24px"
+                                viewBox="0 -960 960 960"
+                                width="24px"
+                                fill="#F5AC1F"
+                            >
+                                <path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/>
+                            </svg>
+                            {productDetails?.rating?.rate}
+                    </p>
+                    <p className="pl-2">
+                        {productDetails?.rating?.count} has lefted.
+                    </p>
+                </div>
+                <p className="border-t-1 pt-4 mt-3 border-custom-light-gray text-custom-medium-gray text-xxs">
                     {productDetails?.description}
                 </p>
            </div>
-           
-           <div className="flex justify-between items-center border-t-1 border-custom-light-gray p-2">
+           <div className="flex justify-between mt-[60px] items-center border-t-1 border-custom-light-gray px-4 py-4">
                <p className="text-xxs text-custom-medium-gray font-custom-thin">
                    Cost:
                </p>
@@ -78,7 +74,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
                </p>
            </div>
         </div>
-        <div className="flex items-center justify-center relative">
+        <div className="order-1 lg:order-2  p-6 flex items-center justify-center relative">
             <Image
                 src={productDetails?.image}
                 alt={productDetails?.title}

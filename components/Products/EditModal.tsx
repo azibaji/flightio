@@ -135,14 +135,16 @@ export default function EditModal ({data, closeModal, handleEdit}:propsType) {
                             </textarea>
 
                         </div>
-                        <div className="mt-24 grid grid-cols-3 gap-2">
+                        <div className="mt-24">
                             <button
-                                className="rounded-full bg-custom-blue text-white py-2 px-4"
+                                className="rounded-full bg-custom-blue text-white px-5 py-2.5 hover:bg-blue-800 font-medium text-sm text-center inline-flex items-center "
                                 onClick={submitEdit}
                             >
                                 Submut changes
                             </button>
-                            <button className="rounded-full bg-custom-pale-gray py-2 px-4" onClick={closeModal}>
+
+                            <button
+                            className="rounded-full ms-3 text-sm font-medium bg-custom-pale-gray py-2.5 px-5 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100" onClick={closeModal}>
                                 Cancel
                             </button>
                         </div>
