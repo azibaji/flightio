@@ -30,7 +30,16 @@ const productsSlice = createSlice({
     status: 'idle',
     error: null,
   },
-  reducers: {},
+  reducers: {
+    sortProducts: (state, action) => {
+      const { sortBy } = action.payload;
+      if (sortBy === 'cheap') {
+        state.items.sort((a, b) => a.price - b.price);
+      } else if (sortBy === 'expensive') {
+        state.items.sort((a, b) => b.price - a.price);
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.fulfilled, (state, action) => {
@@ -50,5 +59,7 @@ const productsSlice = createSlice({
       });
   },
 });
+
+export const { sortProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;
