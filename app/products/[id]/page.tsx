@@ -30,7 +30,6 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
     dispatch(deleteProduct(params.id));
   };
 
-  if (!productDetails) return <div>Loading...</div>;
 
   return (
     <div className="bg-white w-full rounded-lg grid lg:grid-cols-3 lg:gap-2">
@@ -38,12 +37,18 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
             className="order-2 lg:order-1 pt-6 lg:col-span-2 border-r-1 border-custom-light-gray flex flex-col justify-between"
         >
            <div className="p-4">
-                <p className="text-lg font-custom-weight leading-custom-line-height">
-                    {productDetails?.title}
-                </p>
-                <p className="text-custom-medium-gray text-xxs">
-                    {productDetails?.category}
-                </p>
+               {!productDetails && <div className="h-6 bg-gray-200 rounded-full dark:bg-gray-700 w-56 mb-4"></div>}
+               {productDetails && (
+                    <p className="text-lg font-custom-weight leading-custom-line-height">
+                        {productDetails?.title}
+                    </p>
+                )}
+                {!productDetails && <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>}
+                {productDetails && (
+                    <p className="text-custom-medium-gray text-xxs">
+                        {productDetails?.category}
+                    </p>
+                )}
                 <div className="mt-4 flex justify-start items-center text-xxs text-custom-medium-gray">
                     <p className="flex justify-start items-center border-r-1 border-custom-light-gray pr-2">
                             <svg
@@ -61,26 +66,51 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
                         {productDetails?.rating?.count} has lefted.
                     </p>
                 </div>
-                <p className="border-t-1 pt-4 mt-3 border-custom-light-gray text-custom-medium-gray text-xxs">
-                    {productDetails?.description}
-                </p>
+                {!productDetails && (
+                    <div className="border-t-1 pt-4 mt-3 border-custom-light-gray">
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+                    </div>
+                )}
+                {productDetails && (
+                    <p className="border-t-1 pt-4 mt-3 border-custom-light-gray text-custom-medium-gray text-xxs">
+                        {productDetails?.description}
+                    </p>
+                )}
+                
            </div>
            <div className="flex justify-between mt-[60px] items-center border-t-1 border-custom-light-gray px-4 py-4">
                <p className="text-xxs text-custom-medium-gray font-custom-thin">
                    Cost:
                </p>
-               <p className="text-custom-blue text-lg font-custom-weight">
-                   {productDetails?.price} $
-               </p>
+               {!productDetails &&  <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>}
+               {productDetails && (
+                <p className="text-custom-blue text-lg font-custom-weight">
+                    { productDetails?.price} $
+                </p>
+               )}
            </div>
         </div>
         <div className="order-1 lg:order-2  p-6 flex items-center justify-center relative">
-            <Image
-                src={productDetails?.image}
-                alt={productDetails?.title}
-                width={200}
-                height={300}
-            />
+            {!productDetails && (
+                <div role="status" className="flex w-48 items-center justify-center h-56 max-w-sm bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700">
+                    <svg className="w-full h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                    <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                    <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM9 13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2Zm4 .382a1 1 0 0 1-1.447.894L10 13v-2l1.553-1.276a1 1 0 0 1 1.447.894v2.764Z"/>
+                </svg>
+                    <span className="sr-only">Loading...</span>
+                </div>
+            )}
+            {productDetails && (
+                <Image
+                    src={productDetails?.image}
+                    alt={productDetails?.title}
+                    width={200}
+                    height={300}
+                />
+                )}
+            
             <div
                 className="absolute top-6 right-4 rounded-full border-1 border-custom-light-gray bg-white flex justify-between">
                 <button

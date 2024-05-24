@@ -38,7 +38,7 @@ const productsSlice = createSlice({
       } else if (sortBy === 'expensive') {
         state.items.sort((a, b) => b.price - a.price);
       }
-    },
+    }
   },
   extraReducers: (builder) => {
     builder
