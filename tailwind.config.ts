@@ -18,7 +18,8 @@ const config: Config = {
         'custom-medium-gray': '#757575', // A medium gray color
         'custom-pale-gray': '#E5E5E5',
         'custom-blue': '#1A43D3',
-        'custom-red': '#B02626'
+        'custom-red': '#B02626',
+        'custom-yellow': '#F5AC1F'
       },
       fontWeight: { 
         'custom-weight': 700,

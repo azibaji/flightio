@@ -9,7 +9,7 @@ interface propsType {
 export default function ProductItem ({ product }: propsType) {
     return (
         <Link href={`/products/${product.id}`}>
-        <div className="bg-white w-full max-w-sm lg:max-w-full m-2 p-2 rounded-md border-1 border-custom-light-gray">
+        <div className="bg-white w-full max-w-sm lg:max-w-full p-2 rounded-md border-1 border-custom-light-gray">
             <div className="relative w-full pt-[100%]">
                 <Image
                 src={product.image}
