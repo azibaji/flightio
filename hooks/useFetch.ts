@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const useFetch = <dataType>(url: string) => {
   const [data, setData] = useState<dataType | null>(null);
@@ -28,7 +28,7 @@ export const useFetch = <dataType>(url: string) => {
   const deleteData = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(url, { method: 'DELETE' });
+      const response = await fetch(url, { method: "DELETE" });
       if (!response.ok) throw new Error(response.statusText);
       setIsLoading(false);
       setData(null); // Optionally clear data on delete
@@ -43,9 +43,9 @@ export const useFetch = <dataType>(url: string) => {
     setIsLoading(true);
     try {
       const response = await fetch(url, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
       });

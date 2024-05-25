@@ -18,14 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <StoreProvider>
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <main className="min-h-screen flex flex-col items-center lg:py-24 max-w-screen-xl mx-auto">
-        {children}
-        </main>
-      </body>
-    </html>
+      <html lang="en">
+        <body className={inter.className}>
+          <Header />
+          <main className="min-h-screen flex flex-col items-center lg:py-24 max-w-screen-xl mx-auto">
+            {children}
+          </main>
+        </body>
+      </html>
     </StoreProvider>
   );
 }
