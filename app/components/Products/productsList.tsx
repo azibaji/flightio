@@ -1,10 +1,9 @@
 "use client";
+import { ProductItem, ProductItemSkeleton } from "@/app/components";
 import { fetchProducts } from "@/store/slices/slice";
 import { dataType } from "@/types/Product";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ProductItem from "./ProductItem";
-import ProductItemSkeleton from "./ProductItemSkeleton";
 export default function ProductsList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.items);

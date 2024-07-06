@@ -6,7 +6,7 @@ interface propsType {
   product: dataType;
 }
 
-export default function ProductItem({ product }: propsType) {
+export function ProductItem({ product }: propsType) {
   return (
     <Link href={`/products/${product.id}`}>
       <div className="bg-white w-full max-w-sm lg:max-w-full p-2 rounded-md border-1 border-custom-light-gray">

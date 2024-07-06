@@ -1,4 +1,4 @@
-export default function ProductItemSkeleton() {
+export function ProductItemSkeleton() {
   return (
     <div
       role="status"

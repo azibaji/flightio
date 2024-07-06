@@ -2,7 +2,7 @@ interface propsType {
   closeModal: () => void;
   confirmDelete: () => void;
 }
-export default function EditModal({ closeModal, confirmDelete }: propsType) {
+export function DeleteModal({ closeModal, confirmDelete }: propsType) {
   return (
     <div
       id="popup-modal"

@@ -1,6 +1,5 @@
 "use client";
-import DeleteModal from "@/components/Products/DeleteModal";
-import EditModal from "@/components/Products/EditModal";
+import { DeleteModal, EditModal } from "@/app/components";
 import {
   deleteProduct,
   editProduct,
